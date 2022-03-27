@@ -133,6 +133,46 @@
             bottom: 0;
         }
 
+        .intro-visual {
+            display:flex;
+            position:relative;
+            height:100%;
+            background:#fff;
+            overflow:hidden;
+            z-index:1;
+        }
+
+        .intro-top {
+            position:relative;
+            width:100%;
+            min-height:200px;
+            padding-bottom:40px;
+        }
+
+        .intro-txt {
+            position:absolute;
+            left:8.333vw;
+            top:5.55vw;
+            right:8.333vw;
+            z-index:1;
+        }
+        .intro-txt em {
+            display:block;
+            color:#09A3AF;
+            font-size:16px;
+            font-weight:400;
+            font-style:normal;
+            letter-spacing:-0.02em;
+            line-height:24px;
+        }
+        .intro-txt p {
+            margin-top:9px;
+            font-size:30px;
+            font-weight:500;
+            letter-spacing:-0.02em;
+            line-height:42px;
+        }
+
     </style>
 
 </head>
@@ -144,14 +184,22 @@
         <div class="box c">c</div>
 
 
-        <div class="intro-animation" style="height: 100vh; width:100%; position: relative;">
-            <div class="surfing-background" style="transform: translate3d(-4.1104px, -12.3313px, 0px) scale(1.004, 1.00401);"></div>
-            <div class="car-insurance-visual">
-                <div class="car-insurance-1"></div>
-                <div class="car-insurance-2" style="transform: translate3d(950.123px, -551.071px, 0px);"></div>
-                <div class="car-insurance-3"></div>
-            </div>
-        </div>
+        <div class="intro-visual">
+			<div class="intro-top">
+				<div class="intro-txt">
+					<em>친구 차, 부모님 차, 렌터카</em>
+					<p>다른 사람<br>차 운전하세요?</p>
+				</div>
+				<div class="intro-animation">
+                    <div class="surfing-background"></div>
+					<div class="car-insurance-visual">
+						<div class="car-insurance-1"></div>
+						<div class="car-insurance-2"></div>
+						<div class="car-insurance-3"></div>
+					</div>
+                </div>
+			</div>
+		</div>
 
 
     </div>
@@ -211,7 +259,7 @@
         var common_background = function(){
             toPX();
             var surfing_background = gsap.timeline({repeat: -1, repeatDelay: 0});
-                surfing_background.to(".surfing-background",{duration: 2, y:toPX("-3vw"), x:toPX("-1vw"),  yoyo:true, scale:1.02})
+                surfing_background.to(".surfing-background",{duration: 2, y:toPX("-3vw"), x:toPX("-1vw"),  yoyo:false, scale:1.02})
                 .to(".surfing-background",{duration: 1.5, y:toPX("0"), x:toPX("0"), scale:1})
         }
         // 0. 공통 인터렉션 배경
@@ -219,13 +267,26 @@
         var car_insurance_ineraction = function(){
             toPX();
             var car_insurance = gsap.timeline({repeat: -1, repeatDelay:1});
-            car_insurance.to(".car-insurance-2", {duration:2, y:toPX("-30vw"), x:toPX("50vw"), ease: Back.easeOut.config(1.05), yoyo:true },"+=1")
-            .to(".car-insurance-2", {duration:2.5, y:toPX("30vw"), x:toPX("-50vw")}, "+=3")
+            car_insurance.from(".car-insurance-2", {duration:2, y:toPX("-58vw"), x:toPX("100vw"), ease: Back.easeOut.config(1.05), yoyo:false},"+=1")
+            .to(".car-insurance-2", {duration:2.5, y:toPX("58vw"), x:toPX("-100vw"), yoyo:false}, "+=3")
         }
         // 0. 자동차 인터렉션
 
+
+        function introVisualHeight(){
+            var wh = $(window).height();
+            var pt = parseInt( $('.container').css('padding-top'), 10 );
+            var btn = $('.ground-btm').height();
+            $('.intro-visual').height(wh);
+
+            // $('.intro-content-car, .intro-content, .intro-content2').outerHeight( wh );
+        }
+
         common_background();
         car_insurance_ineraction();
+        
+         // 비주얼 영역 높이 지정
+        introVisualHeight();
 
 
 
