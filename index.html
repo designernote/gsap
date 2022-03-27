@@ -211,7 +211,7 @@
         var common_background = function(){
             toPX();
             var surfing_background = gsap.timeline({repeat: -1, repeatDelay: 0});
-                surfing_background.to(".surfing-background",{duration: 2, y:toPX("-3vw"), x:toPX("-1vw"), scale:1.02})
+                surfing_background.to(".surfing-background",{duration: 2, y:toPX("-3vw"), x:toPX("-1vw"),  yoyo:true, scale:1.02})
                 .to(".surfing-background",{duration: 1.5, y:toPX("0"), x:toPX("0"), scale:1})
         }
         // 0. 공통 인터렉션 배경
@@ -219,8 +219,8 @@
         var car_insurance_ineraction = function(){
             toPX();
             var car_insurance = gsap.timeline({repeat: -1, repeatDelay:1});
-            car_insurance.to(".car-insurance-2", {duration:2, y:toPX("-30vw"), x:toPX("10vw"), ease: Back.easeOut.config(1.05), yoyo:true },"+=1")
-            .to(".car-insurance-2", {duration:2.5, y:toPX("30vw"), x:toPX("-100vw")}, "+=3")
+            car_insurance.to(".car-insurance-2", {duration:2, y:toPX("-30vw"), x:toPX("50vw"), ease: Back.easeOut.config(1.05), yoyo:true },"+=1")
+            .to(".car-insurance-2", {duration:2.5, y:toPX("30vw"), x:toPX("-50vw")}, "+=3")
         }
         // 0. 자동차 인터렉션
 
