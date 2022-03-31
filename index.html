@@ -1,40 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://www.educar.co.kr/static/resources/platform/oneday/js/jquery-ui.js"></script>
     <script src="https://www.educar.co.kr/static/resources/platform/oneday/js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="https://www.educar.co.kr/static/resources/platform/oneday/js/gsap.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://www.educar.co.kr/static/resources/platform/oneday/js/gsap.min.js"
+    ></script>
     <script src="https://www.educar.co.kr/static/resources/platform/oneday/js/ScrollTrigger.min.js"></script>
-    <script type="text/javascript" src="https://www.educar.co.kr/static/resources/platform/oneday/js/MotionPathPlugin.min.js"></script>
-    
-
-    
+    <script
+      type="text/javascript"
+      src="https://www.educar.co.kr/static/resources/platform/oneday/js/MotionPathPlugin.min.js"
+    ></script>
 
     <style>
-        .box.active {
+      .box.active {
         background-color: blue;
-        }
+      }
 
-
-
-
-
-        body {
+      body {
         background-color: #111;
-        background-image:
-            linear-gradient(rgba(255,255,255,.07) 2px, transparent 2px),
-            linear-gradient(90deg, rgba(255,255,255,.07) 2px, transparent 2px),
-            linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+        background-image: linear-gradient(
+            rgba(255, 255, 255, 0.07) 2px,
+            transparent 2px
+          ),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.07) 2px, transparent 2px),
+          linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
         background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
         background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
-        }
+      }
 
-        .box {
+      #gsap {
+        border: 2px solid blue;
+        background-color: cornflowerblue;
+        border-radius: 10px;
+        margin: 50px;
+        height: 100px;
+        width: 100px;
+        position: absolute;
+      }
+      .boxx {
+        display: block;
+        vertical-align: middle;
+        background-color: red;
+        height: 40px;
+        width: 40px;
+        border-radius: 5px;
+        margin: 10px;
+        position: relative;
+        left: 500px;
+      }
+
+      .box {
         width: 100px;
         height: 100px;
         background-color: #28a92b;
@@ -44,28 +66,28 @@
         line-height: 100px;
         font-size: 50px;
         text-align: center;
-        }
+      }
 
-        .a {
+      .a {
         top: 200px;
         background-color: #8d3dae;
-        }
+      }
 
-        .b {
+      .b {
         top: 50vh;
-        }
+      }
 
-        .c {
+      .c {
         top: 1000px;
         background-color: #e26c16;
-        }
+      }
 
-        .ghost {
+      .ghost {
         top: 1000px;
         background-color: #444;
-        }
+      }
 
-        .line {
+      .line {
         width: 2px;
         height: 3000px;
         position: absolute;
@@ -73,166 +95,171 @@
         top: 0px;
         /*   visibility: hidden; */
         background-color: #777;
-        }
+      }
 
-        .intro-animation {
-            height:100%;
-            position: relative;
-            padding-top: 45px;
-        }
+      .intro-animation {
+        height: 100%;
+        position: relative;
+        padding-top: 45px;
+      }
 
+      .surfing-background {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background: url('https://www.educar.co.kr/static/resources/platform/oneday/images/insurance_intro/common-bg.svg')
+          no-repeat center bottom;
+        background-size: 100% auto;
+        will-change: transform;
+      }
 
-        .surfing-background{
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 100%;
-            background: url("https://www.educar.co.kr/static/resources/platform/oneday/images/insurance_intro/common-bg.svg") no-repeat center bottom;
-            background-size: 100% auto;
-            will-change: transform;
-        }
+      .intro-animation .car-insurance-visual {
+        width: 84.722vw;
+        height: 56.944vw;
+        position: absolute;
+        left: 8.333vw;
+        bottom: 20.469vh;
+      }
+      .intro-animation .car-insurance-visual .car-insurance-1 {
+        width: 39.522vw;
+        height: 31.406vw;
+        background: url('https://www.educar.co.kr/static/resources/platform/oneday/images/insurance_intro/car-insurance-1.svg')
+          no-repeat center bottom;
+        background-size: 100% auto;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .intro-animation .car-insurance-visual .car-insurance-2 {
+        width: 64.722vw;
+        height: 48.183vw;
+        background: url('https://www.educar.co.kr/static/resources/platform/oneday/images/insurance_intro/car-insurance-2.svg')
+          no-repeat center bottom;
+        /* background:url("../images/insurance_intro/car-insurance-2.png") no-repeat center bottom; */
+        /* background:url("../images/insurance_intro/car-insurance-2-web2x.png") no-repeat center bottom; */
+        /* background:url("../images/insurance_intro/car-insurance-2-web3x.png") no-repeat center bottom; */
+        background-size: 100% auto;
+        position: absolute;
+        top: 8.028vw;
+        left: 13.444vw;
+        will-change: transform;
+      }
+      .intro-animation .car-insurance-visual .car-insurance-3 {
+        width: 28.503vw;
+        height: 24.822vw;
+        background: url('https://www.educar.co.kr/static/resources/platform/oneday/images/insurance_intro/car-insurance-3.svg')
+          no-repeat center bottom;
+        background-size: 100% auto;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
 
+      .intro-visual {
+        display: flex;
+        position: relative;
+        height: 100%;
+        background: #fff;
+        overflow: hidden;
+        z-index: 1;
+      }
 
-        .intro-animation .car-insurance-visual{
-            width: 84.722vw;
-            height: 56.944vw;
-            position: absolute;
-            left: 8.333vw;
-            bottom: 20.469vh;
-        }
-        .intro-animation .car-insurance-visual .car-insurance-1{
-            width: 39.522vw;
-            height: 31.406vw;
-            background:url("https://www.educar.co.kr/static/resources/platform/oneday/images/insurance_intro/car-insurance-1.svg") no-repeat center bottom;
-            background-size:100% auto;
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-        .intro-animation .car-insurance-visual .car-insurance-2{
-            width: 64.722vw;
-            height: 48.183vw;
-            background:url("https://www.educar.co.kr/static/resources/platform/oneday/images/insurance_intro/car-insurance-2.svg") no-repeat center bottom;
-            /* background:url("../images/insurance_intro/car-insurance-2.png") no-repeat center bottom; */
-            /* background:url("../images/insurance_intro/car-insurance-2-web2x.png") no-repeat center bottom; */
-            /* background:url("../images/insurance_intro/car-insurance-2-web3x.png") no-repeat center bottom; */
-            background-size:100% auto;
-            position: absolute;
-            top: 8.028vw;
-            left: 13.444vw;
-            will-change: transform;
-        }
-        .intro-animation .car-insurance-visual .car-insurance-3{
-            width: 28.503vw;
-            height: 24.822vw;
-            background:url("https://www.educar.co.kr/static/resources/platform/oneday/images/insurance_intro/car-insurance-3.svg") no-repeat center bottom;
-            background-size:100% auto;
-            position: absolute;
-            right: 0;
-            bottom: 0;
-        }
+      .intro-top {
+        position: relative;
+        width: 100%;
+        min-height: 200px;
+        padding-bottom: 40px;
+      }
 
-        .intro-visual {
-            display:flex;
-            position:relative;
-            height:100%;
-            background:#fff;
-            overflow:hidden;
-            z-index:1;
-        }
-
-        .intro-top {
-            position:relative;
-            width:100%;
-            min-height:200px;
-            padding-bottom:40px;
-        }
-
-        .intro-txt {
-            position:absolute;
-            left:8.333vw;
-            top:5.55vw;
-            right:8.333vw;
-            z-index:1;
-        }
-        .intro-txt em {
-            display:block;
-            color:#09A3AF;
-            font-size:16px;
-            font-weight:400;
-            font-style:normal;
-            letter-spacing:-0.02em;
-            line-height:24px;
-        }
-        .intro-txt p {
-            margin-top:9px;
-            font-size:30px;
-            font-weight:500;
-            letter-spacing:-0.02em;
-            line-height:42px;
-        }
-
+      .intro-txt {
+        position: absolute;
+        left: 8.333vw;
+        top: 5.55vw;
+        right: 8.333vw;
+        z-index: 1;
+      }
+      .intro-txt em {
+        display: block;
+        color: #09a3af;
+        font-size: 16px;
+        font-weight: 400;
+        font-style: normal;
+        letter-spacing: -0.02em;
+        line-height: 24px;
+      }
+      .intro-txt p {
+        margin-top: 9px;
+        font-size: 30px;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+        line-height: 42px;
+      }
     </style>
-
-</head>
-<body>
+  </head>
+  <body>
     <div style="width: 100%; position: relative;">
-        <div class="box a">a</div>
-        <div class="box b">b</div>
-        <!-- <div class="box ghost">c</div> -->
-        <div class="box c">c</div>
+      <div class="box a">a</div>
+      <div class="box b">b</div>
+      <!-- <div class="box ghost">c</div> -->
+      <div class="box c">c</div>
 
+      <div class="intro-visual">
+        <div class="intro-top">
+          <div class="intro-txt">
+            <em>친구 차, 부모님 차, 렌터카</em>
+            <p>
+              다른 사람
+              <br />
+              차 운전하세요?
+            </p>
+          </div>
+          <div class="intro-animation">
+            <div class="surfing-background"></div>
+            <div class="car-insurance-visual">
+              <div class="car-insurance-1"></div>
+              <div class="car-insurance-2"></div>
+              <div class="car-insurance-3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <div class="intro-visual">
-			<div class="intro-top">
-				<div class="intro-txt">
-					<em>친구 차, 부모님 차, 렌터카</em>
-					<p>다른 사람<br>차 운전하세요?</p>
-				</div>
-				<div class="intro-animation">
-                    <div class="surfing-background"></div>
-					<div class="car-insurance-visual">
-						<div class="car-insurance-1"></div>
-						<div class="car-insurance-2"></div>
-						<div class="car-insurance-3"></div>
-					</div>
-                </div>
-			</div>
-		</div>
-
-
+      <div id="gsap"></div>
+      <div class="boxx box1"></div>
+      <div class="boxx box2"></div>
+      <div class="boxx box3"></div>
+      <div class="boxx box4"></div>
     </div>
 
-    
     <script>
-        // For more information, see greensock.com/docs/v3/Plugins/ScrollTrigger
-        //gsap.registerPlugin(ScrollTrigger);
+      // For more information, see greensock.com/docs/v3/Plugins/ScrollTrigger
+      //gsap.registerPlugin(ScrollTrigger);
 
-        // You can use a ScrollTrigger in a tween or timeline
-        gsap.to(".b", {
+      // You can use a ScrollTrigger in a tween or timeline
+      gsap.to('.b', {
         left: '50vw',
         rotation: 360,
         scrollTrigger: {
-            trigger: ".b",
-            start: "top center",
-            end: "top 100px",
-            scrub: true,
-            markers: true,
-            id: "scrub"
-        }
-        });
+          trigger: '.b',
+          start: 'top center',
+          end: 'top 100px',
+          scrub: true,
+          markers: true,
+          id: 'scrub',
+        },
+      })
 
-
-        // Or you can attach a tween or timeline to a ScrollTrigger later
-        const anim = gsap.to(".c", {
+      // Or you can attach a tween or timeline to a ScrollTrigger later
+      const anim = gsap.to('.c', {
         x: 400,
         rotation: 360,
-        duration: 3
-        });
+        duration: 3,
+      })
 
-        ScrollTrigger.create({
-        trigger: ".c",
+      ScrollTrigger.create({
+        trigger: '.c',
         animation: anim,
         // Uncomment these to see how they affect the ScrollTrigger
         // markers: true,
@@ -244,53 +271,90 @@
         // onUpdate: self => {
         //   console.log("progress:", self.progress.toFixed(3), "direction:", self.direction, "velocity", self.getVelocity());
         // }
-        });
+      })
 
+      /*-------------- 보험상품 메인 인터렉션  --------------*/
+      // 0. vw 단위 계산
+      function toPX(value) {
+        return (
+          (parseFloat(value) / 100) *
+          (/vh/gi.test(value) ? window.innerHeight : window.innerWidth)
+        )
+      }
+      // 0. 모션 블러그인
 
-        /*-------------- 보험상품 메인 인터렉션  --------------*/
-        // 0. vw 단위 계산
-        function toPX(value){
-            return parseFloat(value) / 100 * (/vh/gi.test(value) ? window.innerHeight : window.innerWidth);
-        }
-        // 0. 모션 블러그인 
+      // 0. 공통 인터렉션 배경
+      var common_background = function () {
+        toPX()
+        var surfing_background = gsap.timeline({ repeat: -1, repeatDelay: 0 })
+        surfing_background
+          .to('.surfing-background', {
+            duration: 2,
+            y: toPX('-3vw'),
+            x: toPX('-1vw'),
+            yoyo: false,
+            scale: 1.02,
+          })
+          .to('.surfing-background', {
+            duration: 1.5,
+            y: toPX('0'),
+            x: toPX('0'),
+            scale: 1,
+          })
+      }
+      // 0. 공통 인터렉션 배경
+      // 0. 자동차 인터렉션
+      var car_insurance_ineraction = function () {
+        toPX()
+        var car_insurance = gsap.timeline({ repeat: -1, repeatDelay: 1 })
+        car_insurance
+          .from(
+            '.car-insurance-2',
+            {
+              duration: 2,
+              y: toPX('-58vw'),
+              x: toPX('100vw'),
+              ease: Back.easeOut.config(1.05),
+              yoyo: false,
+            },
+            '+=1',
+          )
+          .to(
+            '.car-insurance-2',
+            { duration: 2.5, y: toPX('58vw'), x: toPX('-100vw'), yoyo: false },
+            '+=3',
+          )
+      }
+      // 0. 자동차 인터렉션
 
+      function introVisualHeight() {
+        var wh = $(window).height()
+        var pt = parseInt($('.container').css('padding-top'), 10)
+        var btn = $('.ground-btm').height()
+        $('.intro-visual').height(wh)
 
-        // 0. 공통 인터렉션 배경
-        var common_background = function(){
-            toPX();
-            var surfing_background = gsap.timeline({repeat: -1, repeatDelay: 0});
-                surfing_background.to(".surfing-background",{duration: 2, y:toPX("-3vw"), x:toPX("-1vw"),  yoyo:false, scale:1.02})
-                .to(".surfing-background",{duration: 1.5, y:toPX("0"), x:toPX("0"), scale:1})
-        }
-        // 0. 공통 인터렉션 배경
-        // 0. 자동차 인터렉션
-        var car_insurance_ineraction = function(){
-            toPX();
-            var car_insurance = gsap.timeline({repeat: -1, repeatDelay:1});
-            car_insurance.from(".car-insurance-2", {duration:2, y:toPX("-58vw"), x:toPX("100vw"), ease: Back.easeOut.config(1.05), yoyo:false},"+=1")
-            .to(".car-insurance-2", {duration:2.5, y:toPX("58vw"), x:toPX("-100vw"), yoyo:false}, "+=3")
-        }
-        // 0. 자동차 인터렉션
+        // $('.intro-content-car, .intro-content, .intro-content2').outerHeight( wh );
+      }
 
+      common_background()
+      car_insurance_ineraction()
 
-        function introVisualHeight(){
-            var wh = $(window).height();
-            var pt = parseInt( $('.container').css('padding-top'), 10 );
-            var btn = $('.ground-btm').height();
-            $('.intro-visual').height(wh);
+      // 비주얼 영역 높이 지정
+      introVisualHeight()
 
-            // $('.intro-content-car, .intro-content, .intro-content2').outerHeight( wh );
-        }
+      //   기본 gsap
+      TweenMax.from('#gsap', 1, {
+        opacity: 0,
+        scale: 0,
+        ease: Bounce.easeOut,
+      })
 
-        common_background();
-        car_insurance_ineraction();
-        
-         // 비주얼 영역 높이 지정
-        introVisualHeight();
+      var t1 = gsap.timeline({ repeat: 30, repeatDelay: 1 })
 
-
-
+      t1.to('.box1', { duration: 1, x: 300, ease: 'bounce' })
+        .to('.box2', { duration: 1, x: 300, ease: 'power4' })
+        .to('.box3', { duration: 1, x: 300, ease: 'elastic' }, 'box3Andbox4')
+        .to('.box4', { duration: 1, x: 300, ease: 'elastic' }, 'box3Andbox4')
     </script>
-    
-</body>
+  </body>
 </html>
