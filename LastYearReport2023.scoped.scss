@@ -1,0 +1,2484 @@
+@import "./var";
+// @import "./onBDs/MowMNG.scss";
+
+p {
+  margin: initial;
+}
+article {
+  margin: initial;
+}
+@mixin issueBox {
+  margin: 0 auto;
+  padding: 1.875rem 0.9375rem;
+  width: calc(100% - (#{$page-margin} * 2));
+  border-radius: 0.625rem;
+  background-color: $gray-100;
+}
+@mixin subText {
+  font-size: 1rem;
+  font-weight: 700;
+  color: $gray-900;
+}
+@mixin mediumText {
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: $gray-900;
+}
+@mixin bigText {
+  margin: initial;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: $gray-900;
+}
+@mixin smallText {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $sub-text-color;
+}
+@mixin dataCapture {
+  margin: 0.625rem auto 0.625rem;
+  width: 6.25rem;
+  height: 6.25rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.font_matrix {
+  /* 폰트 매트릭스 */
+  $font: pretendard;
+  $fm-capitalHeight: 0.68;
+  $fm-descender: 0.54;
+  $fm-ascender: 1.1;
+  $fm-linegap: 0;
+  /* 원하는 대문자 높이 */
+  $capital-height: 70;
+  /* font-family를 적용합니다 */
+  font-family: $font;
+  /* 원하는 대문자 높이를 맞추기 위한 font-size값 계산 */
+  $computedFontSize: (#{$capital-height} / #{$fm-capitalHeight});
+  font-size: calc(#{$computedFontSize} * 1px);
+  text-align: center;
+}
+
+.yearend_wrapper {
+  .fix-upbtnBox {
+    bottom: 3.125rem;
+    .btn-floating {
+      &.white {
+        background-color: $white-color;
+      }
+      .to-Top {
+        font-size: 0;
+        color: transparent;
+      }
+    }
+  }
+  .content-area {
+    padding: 0;
+    background-color: $gray-900;
+    .report_cover {
+      flex-direction: column;
+      .big_title_area {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background-color: $green;
+        .title_cover_img {
+          position: relative;
+          justify-content: center;
+          width: 100%;
+          height: 400px;
+          border-radius: 0 0 3.75rem 3.75rem;
+          background: url("../images/yearendReport/2023/lastyear2023_cover.png") no-repeat top / 22.5rem;
+          background-color: $gray-900;
+          .cover_sub_title {
+            padding-top: 19.125rem;
+            font-size: 1rem;
+            color: $white-color;
+            text-align: center;
+            em {
+              color: #f1e299;
+            }
+          }
+          .obj_calendar {
+            position: absolute;
+            left: 50%;
+            bottom: -4.375rem;
+            width: 7.875rem;
+            height: 7.875rem;
+            transform: translateX(-140%);
+            .icon {
+              display: block;
+              width: 7.875rem;
+              height: 7.875rem;
+              background: url("../images/yearendReport/2023/img_obj_calendar.png") no-repeat center / contain;
+              &.heartbeat {
+                -webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+                animation: heartbeat 1.5s ease-in-out infinite both;
+              }
+            }
+          }
+          .deco_binggle {
+            position: absolute;
+            top: 2.5rem;
+            left: 50%;
+            transform: translateX(240%);
+            width: 2.5rem;
+            height: 2.125rem;
+            .icon {
+              display: block;
+              width: 2.5rem;
+              height: 2.125rem;
+              background: url("../images/yearendReport/2023/lastyear2023_cover_deco1.png") no-repeat center / contain;
+              &.rotate-scale-down {
+                -webkit-animation: rotate-scale-down 2s linear both infinite;
+                animation: rotate-scale-down 2s linear both infinite;
+              }
+            }
+          }
+          .deco_sparkles {
+            position: absolute;
+            top: 10rem;
+            left: 50%;
+            transform: translateX(430%);
+            width: 1.875rem;
+            height: 1.875rem;
+            background: url("../images/yearendReport/2023/lastyear2023_cover_deco2.png") no-repeat center / contain;
+            &.flicker-1 {
+              -webkit-animation: flicker-1 2s linear infinite both;
+              animation: flicker-1 2s linear infinite both;
+            }
+          }
+          .deco_arrow {
+            position: absolute;
+            top: 16.25rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3.5625rem;
+            height: 3.5625rem;
+            animation: slide-in-br 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+            .icon {
+              display: block;
+              width: 3.5625rem;
+              height: 3.5625rem;
+              background: url("../images/yearendReport/2023/lastyear2023_cover_deco3.png") no-repeat center / contain;
+              &.flip-diagonal-1-tr {
+                -webkit-animation: flip-diagonal-1-tr 1.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) both infinite;
+                animation: flip-diagonal-1-tr 1.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) both infinite;
+              }
+            }
+          }
+        }
+        .allow_down {
+          flex-direction: column;
+          padding: 1.25rem;
+          > span {
+            width: 1.8125rem;
+            height: 1rem;
+            background: url("../images/yearendReport/2023/shape_allow_down.svg") no-repeat center / 1.25rem;
+            animation: arrows 2s infinite;
+            &:nth-child(1) {
+              animation-delay: -1s;
+            }
+            &:nth-child(2) {
+              animation-delay: -0.5s;
+            }
+            &:nth-child(3) {
+              animation-delay: -0s;
+            }
+          }
+        }
+      }
+    }
+    .link_box {
+      position: sticky;
+      top: 0;
+      display: flex;
+      height: 3.75rem;
+      // background-color: $gray-100;
+      background: linear-gradient(90deg, rgba(10,194,125,1) 0%, rgba(8,190,144,1) 33%, rgba(5,180,189,1) 69%, rgba(184,147,244,1) 100%);
+      box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.2);
+      z-index: 105;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 1px;
+        height: 20px;
+        transform: translate(-50%, -50%);
+        background-color: $white-color;
+      }
+      li {
+        width: 100%;
+        &.skyLantern_event {
+          background: url("../images/yearendReport/2023/text_link_skyLantern.png") no-repeat center / auto  1.25rem;
+        }
+        &.skyLantern_event1 {
+          background: url("../images/yearendReport/2023/text_link_skyLantern1.png") no-repeat center / auto 1.25rem;
+        }
+        &.soloEscape_challenge {
+          background: url("../images/yearendReport/2023/text_link_soloEscape.png") no-repeat center / auto 1.25rem;
+        }
+      }
+    }
+    .cover_description {
+      flex-direction: column;
+      align-items: center;
+      padding: 3.125rem 0 0;
+      .img_obj_graph {
+        width: 2.8125rem;
+        height: 2.8125rem;
+        background: url("../images/yearendReport/2023/img_obj_graph.png") no-repeat center / contain;
+      }
+      .img_cover_description {
+        margin-top: 0.625rem;
+        width: 13.6875rem;
+        height: 4.5rem;
+        background: url("../images/yearendReport/2023/text_cover_description.png") no-repeat center / contain;
+      }
+      span {
+        font-weight: 700;
+        color: $green;
+      }
+    }
+    /* 탭 캡슐 */
+    // .capsule {
+    //   position: sticky;
+    //   top: 0;
+    //   z-index: 105;
+    //   .capsule_new {
+    //     white-space: nowrap;
+    //     overflow-x: auto;
+    //     background-color:  $gray-900;
+    //     .wrapper {
+    //       padding: 1.25rem;
+    //       .horizonScroll__item {
+    //         padding-left: .625rem;
+    //         font-size: .875rem;
+    //         font-weight: 500;
+    //         color: $white-color;
+    //         line-height: 2rem;
+    //         &:nth-child(1) {
+    //           color: #FFE878;
+    //           padding-left: 0;
+    //         }
+    //         &.on {
+    //           margin-left: .625rem;
+    //           padding-right: 10px;
+    //           border-radius: 1.25rem;
+    //           background-color: $green;
+    //           &:nth-child(1) {
+    //             margin-left: 0;
+    //           }
+    //         }
+    //       }
+    //     }
+    //     // .blank {
+    //     //   width: 20px;
+    //     //   height: 20px;
+    //     //   display: block;
+    //     //   color: transparent;
+    //     // }
+    //   }
+    // }
+    //소비
+    .spending {
+      margin-top: 3.75rem;
+      .Tab_title {
+        margin-left: $page-margin;
+        padding: 0.75rem 1.25rem;
+        display: inline-block;
+        font-size: 1rem;
+        font-weight: 700;
+        color: $white-color;
+        line-height: 1;
+        border-radius: 0.625rem 0.625rem 0 0;
+        background-color: $green;
+      }
+      .issue_box {
+        @include issueBox;
+        flex-direction: column;
+        &:nth-of-type(2) {
+          border-top-left-radius: 0;
+        }
+        & + .issue_box {
+          margin-top: 1.25rem;
+          .medium_text {
+            &.Loading {
+              position: relative;
+              &::after {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                left: 123px;
+                bottom: 0;
+                height: 19px;
+                width: 22px;
+                background: #f7f7f7;
+                opacity: 1;
+                transform-origin: right;
+                animation: dot3 1.2s reverse infinite;
+
+                @keyframes dot3 {
+                  0% {
+                    transform: scaleX(0);
+                  }
+                  15% {
+                    transform: scaleX(0.38);
+                  }
+                  25% {
+                    transform: scaleX(0.38);
+                  }
+                  40% {
+                    transform: scaleX(0.66);
+                  }
+                  55% {
+                    transform: scaleX(0.66);
+                  }
+                  70% {
+                    transform: scaleX(1);
+                  }
+                  80%,
+                  100% {
+                    transform: scaleX(1);
+                  }
+                }
+              }
+            }
+          }
+        }
+        article {
+          position: relative;
+          & + article {
+            margin-top: 1.875rem;
+            padding-top: 1.875rem;
+            border-top: 1px dashed #cdcdcc;
+          }
+          em {
+            color: $green;
+          }
+          .sub_text {
+            @include subText;
+          }
+          .big_text {
+            @include bigText;
+          }
+          .small_text {
+            @include smallText;
+          }
+          .medium_text {
+            @include mediumText;
+          }
+          .ranking_list_vol1 {
+            margin-top: 0.8125rem;
+            li {
+              display: flex;
+              align-items: center;
+              padding: 0.5rem 0.75rem;
+              border-radius: 0.625rem;
+              background-color: $white-color;
+              & + li {
+                margin-top: 0.375rem;
+              }
+              &::before {
+                content: "";
+                display: inline-block;
+                margin-right: 0.75rem;
+                width: 1.75rem;
+                height: 1.75rem;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+              }
+              &:nth-child(1) {
+                position: relative;
+                &::before {
+                  background-image: url("../images/yearendReport/2023/text_ball_ranking1.png");
+                }
+                &::after {
+                  content: "";
+                  position: absolute;
+                  top: 72%;
+                  left: 0.6875rem;
+                  transform: translateY(-50%);
+                  width: 1.875rem;
+                  height: 0.875rem;
+                  background: url("../images/yearendReport/2023/text_ball_ranking_deco.png") no-repeat center / contain;
+                }
+              }
+              &:nth-child(2) {
+                &::before {
+                  background-image: url("../images/yearendReport/2023/text_ball_ranking2.png");
+                }
+              }
+              &:nth-child(3) {
+                &::before {
+                  background-image: url("../images/yearendReport/2023/text_ball_ranking3.png");
+                }
+              }
+              &:nth-child(4) {
+                &::before {
+                  background-image: url("../images/yearendReport/2023/text_ball_ranking4.png");
+                }
+              }
+              &:nth-child(5) {
+                &::before {
+                  background-image: url("../images/yearendReport/2023/text_ball_ranking5.png");
+                }
+              }
+              .ranking_title {
+                flex-direction: column;
+                justify-content: center;
+                .sub_text {
+                }
+              }
+            }
+          }
+          .ranking_list {
+            padding: 0.5rem 1.9375rem 0;
+            li {
+              position: relative;
+              display: flex;
+              align-items: center;
+              padding-bottom: 0.625rem;
+              padding-left: 1rem;
+              & + li {
+                padding-top: 0.625rem;
+                border-top: 1px dashed #cdcdcc;
+              }
+              &::before {
+                content: "";
+                display: inline-block;
+                margin-right: 0.625rem;
+                width: 1.75rem;
+                height: 1.75rem;
+              }
+              &:nth-child(1) {
+                &::before {
+                  background: url("../images/yearendReport/2023/text_ball_ranking1.png") no-repeat center / contain;
+                }
+                &::after {
+                  content: "";
+                  position: absolute;
+                  top: 70%;
+                  left: 0.875rem;
+                  transform: translateY(-50%);
+                  width: 1.875rem;
+                  height: 0.875rem;
+                  background: url("../images/yearendReport/2023/text_ball_ranking_deco.png") no-repeat center / contain;
+                }
+              }
+              &:nth-child(2) {
+                &::before {
+                  background: url("../images/yearendReport/2023/text_ball_ranking2.png") no-repeat center / contain;
+                }
+              }
+              &:nth-child(3) {
+                padding-bottom: 0;
+                &::before {
+                  background: url("../images/yearendReport/2023/text_ball_ranking3.png") no-repeat center / contain;
+                }
+              }
+            }
+            .ranking_title {
+              flex-direction: column;
+              width: calc(100% - 1.875rem);
+              .sub_text {
+                flex: 1;
+              }
+            }
+          }
+          .line_chart {
+            position: relative;
+            flex-direction: column;
+            margin: 0.625rem 0 0.625rem;
+            width: 100%;
+            height: 11.25rem;
+            > .pic_high {
+              position: absolute;
+              top: -2.5rem;
+              flex-direction: column;
+              align-items: center;
+              .amount {
+                padding: 0 0.625rem;
+                margin-bottom: 0.3125rem;
+                font-size: 0.75rem;
+                font-weight: 700;
+                color: $white-color;
+                line-height: 1.625rem;
+                background-color: $green;
+                border-radius: 1.875rem;
+              }
+              .target {
+                width: 2.1875rem;
+                height: 2.1875rem;
+                background: url("../images/yearendReport/2023/ico_high_target.png") no-repeat center / contain;
+              }
+            }
+            .spendig_month {
+              margin: 0 0.375rem;
+              > div {
+                width: calc(100% / 12);
+                justify-content: center;
+                align-items: center;
+                font-size: 0.75rem;
+                font-weight: 500;
+                color: $gray-900;
+                &.pic_high {
+                  font-size: 0.75rem;
+                  font-weight: 700;
+                  color: $green;
+                  // &::before {
+                  //   content: '';
+                  //   width: 2.1875rem;
+                  //   height: 2.1875rem;
+                  //   background: url('../images/yearendReport/2023/ico_pic_high.png') no-repeat center / contain;
+                  // }
+                }
+              }
+            }
+          }
+          .obj_coin {
+            position: absolute;
+            top: 2.75rem;
+            right: -1.875rem;
+            width: 5.8125rem;
+            height: 6.1875rem;
+            background: url("../images/yearendReport/2023/img_obj_coin.png") no-repeat center / contain;
+            z-index: 1;
+          }
+          .data_capture {
+            @include dataCapture;
+            margin-bottom: 0;
+            background-image: url("../images/yearendReport/2023/img_obj_money.png");
+          }
+        }
+      }
+      & + .green_btnBox {
+        .green {
+          &.banner {
+            height: 6.25rem;
+          }
+        }
+      }
+    }
+    .haruChat_banner {
+      position: relative;
+      flex-direction: column;
+      margin: 0 auto;
+      padding: 0.75rem 1.375rem;
+      width: calc(100% - (#{$page-margin} * 2));
+      border-radius: 0.625rem;
+      background: #7672ef;
+      caption {
+        width: 2.875rem;
+        font-size: 0.625rem;
+        font-weight: 500;
+        color: $white-color;
+        border-radius: 1rem;
+        line-height: 1rem;
+        background-color: $base-color;
+      }
+      p {
+        margin-top: 0.3125rem;
+        font-size: 1.0625rem;
+        font-weight: 700;
+        color: #ffe878;
+      }
+      span {
+        font-size: 0.625rem;
+        font-weight: 700;
+        color: $white-color;
+      }
+      .obj_calendar_chat {
+        position: absolute;
+        top: 1.25rem;
+        right: 0.125rem;
+        width: 4.25rem;
+        height: 4.375rem;
+        background: url("../images/yearendReport/2023/img_obj_calendar_chat.png") no-repeat center / contain;
+      }
+    }
+
+    //핫플레이스
+    .hot_place {
+      @extend .spending;
+      article {
+        padding-bottom: 0 !important;
+        .bubble_chart {
+          justify-content: center;
+          margin: 0.625rem -1.25rem 1.25rem;
+          height: 18.125rem;
+          .bubble_wrap {
+            position: relative;
+            width: 18.75rem;
+            height: 100%;
+
+            .bounce_in_fwd {
+              -webkit-animation: bounce_in_fwd 1.1s both;
+              animation: bounce_in_fwd 1.1s both;
+            }
+            .no1 {
+              position: absolute;
+              top: 74px;
+              left: 0;
+              width: 9.25rem;
+              height: 9.25rem;
+              border-radius: 50%;
+              background: linear-gradient(0deg, rgba(1, 216, 203, 1) 0%, rgba(18, 216, 1, 1) 100%);
+              z-index: 5;
+              .text_box {
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1.25rem 0;
+                width: 100%;
+                color: $white-color;
+                text-align: center;
+                span {
+                  font-size: 0.875rem;
+                  font-weight: 500;
+                }
+                p {
+                  width: 80%;
+                  font-size: 1.25rem;
+                  font-weight: 700;
+                  word-break: break-all;
+                }
+                desc {
+                  font-size: 0.75rem;
+                  font-weight: 700;
+                }
+              }
+            }
+            .no2 {
+              @extend .no1;
+              animation-delay: 200ms;
+              top: 40px;
+              right: 30px;
+              left: initial;
+              width: 7.5rem;
+              height: 7.5rem;
+              background: linear-gradient(0deg, rgba(248, 221, 114, 1) 0%, rgba(255, 166, 127, 1) 100%);
+              z-index: 4;
+              .text_box {
+                span {
+                  font-size: 0.75rem;
+                }
+                p {
+                  font-size: 1.125rem;
+                }
+                desc {
+                  font-size: 0.625rem;
+                }
+              }
+            }
+            .no3 {
+              @extend .no1;
+              animation-delay: 300ms;
+              top: initial;
+              left: 105px;
+              bottom: 0;
+              width: 7.1875rem;
+              height: 7.1875rem;
+              background: linear-gradient(0deg, rgba(157, 196, 255, 1) 0%, rgba(117, 129, 247, 1) 100%);
+              z-index: 3;
+              .text_box {
+                span {
+                  font-size: 0.625rem;
+                }
+                p {
+                  font-size: 0.875rem;
+                }
+                desc {
+                  font-size: 0.625rem;
+                }
+              }
+            }
+            .no4 {
+              @extend .no3;
+              animation-delay: 400ms;
+              top: 0;
+              left: 78px;
+              width: 5.875rem;
+              height: 5.875rem;
+              background: linear-gradient(0deg, rgba(157, 196, 255, 1) 0%, rgba(117, 129, 247, 1) 100%);
+              z-index: 2;
+              .text_box {
+                span {
+                  font-size: 0.625rem;
+                }
+                p {
+                  font-size: 0.75rem;
+                }
+                desc {
+                  font-size: 0.625rem;
+                }
+              }
+            }
+            .no5 {
+              @extend .no2;
+              animation-delay: 500ms;
+              top: initial;
+              left: initial;
+              right: 0;
+              bottom: 3.125rem;
+              width: 6.0625rem;
+              height: 6.0625rem;
+              background: linear-gradient(0deg, rgba(248, 221, 114, 1) 0%, rgba(255, 166, 127, 1) 100%);
+              z-index: 1;
+              .text_box {
+                span {
+                  font-size: 0.625rem;
+                }
+                p {
+                  font-size: 0.75rem;
+                }
+                desc {
+                  font-size: 0.625rem;
+                }
+              }
+            }
+          }
+        }
+        // .medium_text {
+        //   margin-top: 1.25rem;
+        // }
+        .ranking_card {
+          display: flex;
+          margin-top: 1.5625rem;
+          li {
+            position: relative;
+            + li {
+              margin-left: 0.625rem;
+            }
+            &::before {
+              content: "";
+              position: absolute;
+              top: -0.25rem;
+              left: 50%;
+              transform: translateX(-50%);
+              display: inline-block;
+              width: 1.375rem;
+              height: 1.875rem;
+            }
+            &:nth-child(1) {
+              width: 32%;
+              &::before {
+                background: url("../images/yearendReport/2023/medal_2.png") no-repeat center / contain;
+              }
+            }
+            &:nth-child(2) {
+              width: 36%;
+              &::before {
+                top: -0.8125rem;
+                width: 1.625rem;
+                height: 2rem;
+                background: url("../images/yearendReport/2023/medal_1.png") no-repeat center / contain;
+              }
+            }
+            &:nth-child(3) {
+              width: 32%;
+              &::before {
+                background: url("../images/yearendReport/2023/medal_3.png") no-repeat center / contain;
+              }
+            }
+            .ranking_title {
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              padding: 1.875rem 0 1.25rem;
+              height: 7.125rem;
+              border-radius: 0.625rem;
+              background-color: #e9ede5;
+              &.no1 {
+                margin-top: -0.6875rem;
+                padding: 1.75rem 0;
+                height: 134px;
+                border: 2px solid $green;
+                background-color: $white-color;
+                .sub_text {
+                  font-size: 1rem !important;
+                }
+              }
+              .sub_text {
+                display: flex;
+                align-items: center;
+                height: 100%;
+                font-size: 14px;
+                text-align: center;
+              }
+              .small_text {
+                font-size: 0.75rem;
+              }
+            }
+          }
+        }
+        .ani_graph {
+          justify-content: center;
+          ul {
+            margin-top: 1.625rem;
+            display: flex;
+            width: 100%;
+            min-width: 40%;
+            max-width: 60%;
+            li {
+              display: flex;
+              flex: 1;
+              flex-direction: column;
+              justify-content: flex-end;
+              align-items: center;
+              height: 7.6875rem;
+              span {
+                font-size: 0.875rem;
+                font-weight: 500;
+                color: $green;
+              }
+              .bar {
+                align-items: flex-end;
+                margin: 0.625rem 0;
+                width: 2.5rem;
+                height: 4.25rem;
+                border-radius: 0.625rem;
+                background: $green;
+                animation: bar-height 3s infinite;
+              }
+              &.dis {
+                filter: grayscale(1);
+                .bar {
+                  // height: 2.5rem;
+                  height: 4.25rem;
+                  animation: bar-height2 3s infinite;
+                }
+              }
+            }
+          }
+        }
+        .data_capture {
+          @include dataCapture;
+          margin-bottom: -5px !important;
+          background-image: url("../images/yearendReport/2023/img_obj_mappin.png") !important;
+        }
+      }
+    }
+    //걸음수
+    .step_stats {
+      @extend .spending;
+      article {
+        .medium_text {
+          @include mediumText;
+        }
+        .step_round {
+          display: flex;
+          justify-content: space-around;
+          &.no_connect {
+            li {
+              .stepRound {
+                height: 8.25rem;
+                &.day {
+                  width: 8.25rem;
+                  height: 8.25rem;
+                  animation: stepRound 3s infinite;
+                }
+                &.weeken {
+                  width: 8.25rem;
+                  height: 8.25rem;
+                  animation: stepRound2 3s infinite;
+                }
+              }
+            }
+          }
+          li {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            .stepRound {
+              justify-content: center;
+              align-items: center;
+              margin-top: 0.625rem;
+              font-weight: 700;
+              color: $white-color;
+              border-radius: 50%;
+              &.day {
+                background: linear-gradient(180deg, rgba(118, 131, 248, 1) 0%, rgba(157, 195, 255, 1) 100%);
+              }
+              &.weeken {
+                background: linear-gradient(180deg, rgba(18, 216, 1, 1) 0%, rgba(1, 216, 203, 1) 100%);
+              }
+              &.small_data {
+                width: 6.25rem;
+                height: 6.25rem;
+                font-size: 0.875rem;
+              }
+              &.big_data {
+                width: 8.25rem;
+                height: 8.25rem;
+                font-size: 1.125rem;
+              }
+              + span {
+                margin-top: 0.3125rem;
+                font-size: 14px;
+                font-weight: 700;
+                color: $gray-900;
+              }
+            }
+            &.data_capture {
+              @include dataCapture;
+              margin: 5px 0 -10px;
+              background-image: url("../images/yearendReport/2023/img_obj_Runningshoe.png");
+            }
+          }
+        }
+      }
+    }
+    //유튜브
+    .best_youtube {
+      @extend .spending;
+      article {
+        .youtube_ranking {
+          @extend .ranking_list;
+          padding: 0.5rem 0.75rem 0 !important;
+          li {
+            padding: 0.625rem 1.25rem;
+            border-radius: 10px;
+            background-color: $white-color;
+            .ranking_title {
+              gap: 10px;
+            }
+            & + li {
+              margin-top: 0.625rem;
+              border: none !important;
+            }
+            &:nth-child(3) {
+              padding-bottom: 0.625rem !important;
+            }
+            .ranking_title {
+              flex-direction: row !important;
+              align-items: center;
+              width: 100%;
+              justify-content: space-between;
+              .small_text {
+                font-size: 0.75rem;
+              }
+            }
+            &.data_capture {
+              @include dataCapture;
+              margin: 0 auto;
+              background-color: transparent;
+              background-image: url("../images/yearendReport/2023/img_obj_notifyheart.png");
+              &::before {
+                display: none;
+              }
+            }
+          }
+        }
+        .youtube_capsule_img {
+          display: block;
+          margin: 1.25rem auto 0;
+          width: 18.125rem;
+          height: 7.25rem;
+          background: url("../images/yearendReport/2023/img_obj_youtube_capsule.png") no-repeat center / contain;
+        }
+        .youtube_capsule {
+          display: flex;
+          justify-content: space-between;
+          padding: 1.25rem 0 0;
+          li {
+            padding-top: 0.625rem;
+            span {
+              display: block;
+              font-size: 0.875rem;
+              font-weight: 700;
+              line-height: 2rem;
+            }
+            &:nth-child(1) {
+              > span {
+                padding: 0 0.625rem;
+                color: $white-color;
+                border-radius: 1.875rem;
+                background: #aba8ff;
+              }
+            }
+            &:nth-child(2) {
+              > span {
+                padding: 0 0.625rem;
+                color: #cb7522;
+                border-radius: 0 0.625rem 0.625rem 0;
+                background: #ffbf81;
+              }
+            }
+            &:nth-child(3) {
+              > span {
+                font-size: 0;
+                color: transparent;
+                width: 3.1875rem;
+                height: 2rem;
+                border-radius: 0.25rem;
+                background: url("../images/yearendReport/2023/ico_dollar.png") no-repeat top 0.0625rem left 0.75rem /
+                  contain #ffe27a;
+              }
+            }
+            &:nth-child(4) {
+              > span {
+                padding: 0 0.625rem;
+                color: #00aa42;
+                border-radius: 0.25rem 0.25rem 0.25rem 1.25rem;
+                background: #afefc8;
+              }
+            }
+            &:nth-child(5) {
+              > span {
+                font-size: 0;
+                color: transparent;
+                width: 2rem;
+                height: 2rem;
+                background: url("../images/yearendReport/2023/ico_deco.png") no-repeat center / contain;
+              }
+            }
+            &:last-child {
+              padding-right: 0;
+            }
+          }
+        }
+        .youtube_capsule2 {
+          display: flex;
+          justify-content: space-between;
+          li {
+            padding-top: 0.625rem;
+            span {
+              display: block;
+              font-size: 0.875rem;
+              font-weight: 700;
+              line-height: 2rem;
+            }
+            &:nth-child(1) {
+              > span {
+                padding: 0 1.25rem;
+                color: #00aa42;
+                border-radius: 999px;
+                background: #afefc8;
+              }
+            }
+            &:nth-child(2) {
+              > span {
+                font-size: 0;
+                color: transparent;
+                width: 3.1875rem;
+                height: 2rem;
+                border-radius: 999px 0 0 999px;
+                background: url("../images/yearendReport/2023/ico_coin_sack.png") no-repeat top 0.0625rem left 0.75rem /
+                  contain #ffe27a;
+              }
+            }
+            &:nth-child(3) {
+              > span {
+                padding: 0 0.9375rem;
+                color: #cb7522;
+                border-radius: 999px;
+                background: #ffbf81;
+              }
+            }
+            &:nth-child(4) {
+              > span {
+                padding: 0 0.625rem;
+                color: $white-color;
+                border-radius: 0.25rem;
+                background: #aba8ff;
+              }
+            }
+            &:last-child {
+              padding-right: 0;
+            }
+          }
+        }
+        .youtube_capsule3 {
+          display: flex;
+          justify-content: space-between;
+          li {
+            padding-top: 0.625rem;
+            span {
+              display: block;
+              font-size: 0.875rem;
+              font-weight: 700;
+              line-height: 2rem;
+            }
+
+            &:nth-child(1) {
+              > span {
+                padding: 0 1.25rem;
+                color: #cea81e;
+                border-radius: 0.25rem 0.25rem 1.875rem 0.25rem;
+                background: #ffe27a;
+              }
+            }
+            &:nth-child(2) {
+              > span {
+                padding: 0 0.9375rem;
+                color: #cb7522;
+                border-radius: 999px;
+                background: #ffbf81;
+              }
+            }
+            &:nth-child(3) {
+              > span {
+                padding: 0 1.25rem;
+                color: #00aa42;
+                border-radius: 999px;
+                background: #afefc8;
+              }
+            }
+            &:nth-child(4) {
+              > span {
+                padding: 0 1.25rem;
+                font-size: 0;
+                color: transparent;
+                width: 3.1875rem;
+                height: 2rem;
+                border-radius: 0.625rem;
+                background: url("../images/pmf/v2/popup_card.svg") no-repeat top -0.25rem left 0.625rem / contain #ffe27a;
+              }
+            }
+            &:last-child {
+              padding-right: 0;
+            }
+          }
+        }
+      }
+      .button {
+        margin-top: 1.125rem;
+      }
+    }
+    //슬라이드
+    .year_issue_slideArea {
+      padding: 3.75rem 0 1rem;
+      .issueSwiper {
+        margin-top: 1.25rem;
+        padding-bottom: 3.125rem;
+        width: 100%;
+        .issue_box {
+          @include issueBox;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          height: 30.625rem;
+          background-color: $white-color;
+          .special_day {
+            flex-direction: column;
+            width: 100%;
+            > p {
+              font-size: 1.25rem;
+              font-weight: 700;
+              color: $gray-900;
+              text-align: left;
+              em {
+                color: $green;
+              }
+            }
+            .flip_calendar {
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              padding: 0.625rem 0 0.9375rem;
+              height: 14.6875rem;
+              .month {
+                font-size: 2.375rem;
+                font-weight: 900;
+                color: $gray-900;
+              }
+              .day_bg {
+                position: relative;
+                width: 11rem;
+                height: 8.4375rem;
+                background: url("../images/yearendReport/2023/calendar_day_bg.png") no-repeat center / contain;
+                &::before {
+                  content: "";
+                  position: absolute;
+                  top: 46%;
+                  left: 0.25rem;
+                  width: 5rem;
+                  height: 0.125rem;
+                  background-color: $line-list-border;
+                  z-index: 2;
+                }
+                &::after {
+                  content: "";
+                  position: absolute;
+                  top: 46%;
+                  right: 0.25rem;
+                  width: 5rem;
+                  height: 0.125rem;
+                  background-color: $line-list-border;
+                  z-index: 2;
+                }
+                .day {
+                  > span {
+                    position: absolute;
+                    top: 50%;
+                    left: 0.25rem;
+                    transform: translateY(-53%);
+                    width: 5rem;
+                    font-size: 6.375rem;
+                    font-weight: 900;
+                    color: $gray-900;
+                    & + span {
+                      margin-right: -0.625rem;
+                      right: 0.875rem;
+                      left: initial;
+                    }
+                  }
+                }
+              }
+            }
+
+            .zogak_data {
+              flex-direction: column;
+              margin: 1.875rem 0 0.625rem;
+              height: 12.1875rem;
+              text-align: left;
+              > p {
+                @include subText;
+                line-height: 1;
+                & + span {
+                  @include smallText;
+                  margin-top: 0.625rem;
+                  font-weight: 400;
+                  &.ellipsis {
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 9;
+                    word-break: break-all;
+                    line-height: 1.4;
+                    overflow: hidden;
+                    white-space: initial;
+                    text-overflow: ellipsis;
+                  }
+                }
+              }
+            }
+            .day_data {
+              flex-direction: column;
+              > p {
+                padding: 0.625rem 0 0.5rem;
+                font-size: 1rem;
+                font-weight: 700;
+                color: $gray-900;
+                text-align: left;
+                > ul {
+                  display: flex;
+                  justify-content: space-between;
+                }
+                &::after {
+                  content: "";
+                  display: block;
+                  padding: 0.375rem 0 0;
+                  border-bottom: 1px dashed #cdcdcd;
+                }
+              }
+              .day_data_list {
+                padding: 0 0 0.625rem;
+                li {
+                  display: flex;
+                  justify-content: space-between;
+                  font-size: 0.875rem;
+                  color: $sub-text-color;
+                  & + li {
+                    padding-top: 10px;
+                  }
+                }
+              }
+            }
+          }
+          .button {
+            &.small_green {
+              position: absolute;
+              left: 50%;
+              bottom: 1.875rem;
+              transform: translateX(-50%);
+              padding: 0 0 0 0.625rem;
+              width: 8.75rem;
+              height: initial;
+              font-weight: 700;
+              line-height: 2.25rem;
+              border-radius: 3.125rem;
+              background-color: $green;
+              &::after {
+                content: "";
+                display: inline-block;
+                width: 1.375rem;
+                height: 1.375rem;
+                vertical-align: -0.375rem;
+                background: url("../images/btn_go_white.svg") no-repeat center / contain;
+              }
+            }
+          }
+        }
+        &.noissue {
+          position: relative;
+          margin: 1.25rem auto 0;
+          padding-bottom: 1.5rem;
+          width: calc(100% - (#{$page-margin} * 2));
+          .issue_box {
+            .button {
+              &.small_green {
+                bottom: 3.375rem;
+              }
+            }
+          }
+        }
+      }
+      .slide_title {
+        flex-direction: column;
+        align-items: center;
+        span {
+          display: block;
+          margin-bottom: 0.625rem;
+          width: 2.5rem;
+          height: 2.5rem;
+          background: url("../images/yearendReport/2023/ico_calendar.png") no-repeat center / contain;
+        }
+        p {
+          font-size: 1.625rem;
+          font-weight: 700;
+          color: $white-color;
+          text-align: center;
+          line-height: 34px;
+          em {
+            color: #ffe878;
+          }
+        }
+      }
+    }
+    .lastyear_event {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      margin: 55px auto 0;
+      width: calc(100% - (#{$page-margin} * 2));
+      .deco1 {
+        position: absolute;
+        top: -30px;
+        left: -14px;
+        width: 80px;
+        height: 120px;
+        background: url('../images/yearendReport/2023/img_obj_lantern_balloon.png') no-repeat center / cover;
+        z-index: 9;
+      }
+      .gayeon_deco2 {
+        position: absolute;
+        top: 100px;
+        right: -24px;
+        width: 68px;
+        height: 78px;
+        background: url('../images/yearendReport/2023/img_obj_gayeon_ring.png') no-repeat center top / contain;
+        z-index: 1;
+      }
+      .event_box {
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 .5rem 1.1875rem;
+        flex: 1;
+        border-radius: .625rem;
+        & + .event_box {
+          margin-left: .625rem;
+        }
+        &.left {
+          position: relative;
+          padding-top: 2.4375rem;
+          background: linear-gradient(180deg, rgba(4,9,20,1) 0%, rgba(4,14,35,1) 10%, rgba(6,37,94,1) 100%);
+          > div {
+            flex-direction: column;
+            .deco {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: url('../images/yearendReport/2023/bg_lantern_deco.png') no-repeat center top 30px / contain;
+            }
+            > p {
+              position: absolute;
+              top: .875rem;
+              left: 0;
+              font-size: 0;
+              color: transparent;
+              width: 100%;
+              height: 100px;
+              background: url("../images/yearendReport/2023/text_skyLantern_event_title2.png") no-repeat center / 11.5rem;
+            }
+            span {
+              margin-top: 3.625rem;
+              font-size: .875rem;
+              font-weight: 500;
+              color: $white-color;
+              text-align: center;
+              em {
+                color: $orange;
+              }
+            }
+            .present {
+              position: relative;
+              margin-top: .625rem;
+              width: 100%;
+              height: 100px;
+              .reward {
+                position: absolute;
+                flex-direction: column;
+                align-items: center;
+                &.macbookAir {
+                  top: 0;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  width: 116px;
+                  height: 68px;
+                  background: url("../images/yearendReport/2023/img_macbookAir.png") no-repeat center / contain;
+                  span {
+                    top: -0.625rem;
+                    right: 0.3125rem;
+                  }
+                }
+                &.airpodsMax {
+                  top: 37px;
+                  left: 21%;
+                  transform: translateX(-50%);
+                  width: 49px;
+                  height: 53px;
+                  background: url("../images/yearendReport/2023/img_airpodMax.png") no-repeat center / contain;
+                  span {
+                    top: -0.3125rem;
+                    left: 0;
+                  }
+                }
+                &.ipadAir {
+                  top: 38px;
+                  left: 80%;
+                  transform: translateX(-50%);
+                  width: 42px;
+                  height: 55px;
+                  background: url("../images/yearendReport/2023/img_ipadAir.png") no-repeat center / contain;
+                  span {
+                    top: -1.25rem;
+                    right: 0;
+                  }
+                }
+                span {
+                  position: absolute;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  width: 1.6875rem;
+                  height: 1.6875rem;
+                  font-size: 0.75rem;
+                  font-weight: 700;
+                  color: $white-color;
+                  text-align: center;
+                  line-height: 2rem;
+                  border-radius: 50%;
+                  background: linear-gradient(145deg, rgba(255, 121, 60, 1) 0%, rgba(242, 177, 0, 1) 100%);
+                }
+                p {
+                  position: absolute;
+                  bottom: -1.875rem;
+                  margin-top: 0.3125rem;
+                  font-size: 0.75rem;
+                  font-weight: 500;
+                  color: $white-color;
+                }
+              }
+            }
+          }
+          .button {
+            margin: 10px 0 0;
+            width: 100%;
+            z-index: 9;
+          }
+        }
+        &.right {
+          position: relative;
+          padding-top: 1.625rem;
+          background: url('../images/yearendReport/2023/bg_gayeon2.png') center / cover;
+          .gayeon_deco {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            background: url('../images/yearendReport/2023/bg_gayeon_deco3.png') no-repeat center  / 220px;
+            z-index: 1;
+          }
+          .gayeon_deco1 {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 144px;
+            height: 100%;
+            background: url('../images/yearendReport/2023/bg_lantern_deco1.png') no-repeat center top / contain;
+            z-index: 1;
+          }
+          
+          > div {
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
+            caption {
+              width: 7.0625rem;
+              font-size: .875rem;
+              font-weight: 500;
+              color: #ffffff;
+              border-radius: 9999px;
+              line-height: 1.75rem;
+              background-color: #8075f5;
+            }
+            > p {
+              margin-top: .5rem;
+              width: 118px;
+              height: 5rem;
+              font-size: 0;
+              color: transparent;
+              background: url('../images/yearendReport/2023/text_ga_yeon_event_title2.png') no-repeat center / contain;
+            }
+            span {
+              margin-top: 1.1875rem;
+              font-size: 13px;
+              font-weight: 500;
+              color: $white-color;
+              text-align: center;
+              line-height: 1.375rem;
+            }
+          }
+          .button {
+            margin: 10px 0 0;
+            width: 100%;
+            z-index: 2;
+          }
+        }
+
+      }
+    }
+    // 풍등이벤트
+    .sky_lantern {
+      .lantern_bg {
+        margin: 0 auto;
+        width: calc(100% - (1.25rem * 2));
+        border-radius: 0.625rem;
+        background: linear-gradient(180deg, rgba(3, 8, 18, 1) 0%, rgba(9, 28, 65, 1) 80%, rgba(1, 45, 144, 1) 100%);
+        .lantern_bgBox {
+          flex-direction: column;
+          margin: 0 auto;
+          padding: 1.875rem 0.9375rem;
+          width: 100%;
+          min-height: 31.375rem;
+          border-radius: 0.625rem;
+          background: url("../images/yearendReport/2023/bg_skyLantern.png") no-repeat top / contain;
+          article {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            > .img_skylantern {
+              display: block;
+              width: 90px;
+              height: 4.125rem;
+              background: url("../images/yearendReport/2023/img_obj_skylantern.png") no-repeat center / 5.625rem
+                4.125rem;
+            }
+            .event_title {
+              display: block;
+              font-size: 0;
+              color: transparent;
+              width: 12.5rem;
+              height: 5.375rem;
+              background: url("../images/yearendReport/2023/text_skyLantern_event_title.png") no-repeat center / 12.5rem;
+              + span {
+                margin: 0.625rem 0;
+                font-size: 0.875rem;
+                color: $white-color;
+                text-align: center;
+                line-height: 20px;
+                em {
+                  color: #fc903c;
+                }
+              }
+            }
+            .present {
+              position: relative;
+              width: 17rem;
+              height: 12rem;
+              border-radius: 0.625rem;
+              background-color: #242424;
+              .reward {
+                position: absolute;
+                flex-direction: column;
+                align-items: center;
+                &.macbookAir {
+                  top: 1.5rem;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  width: 10.4375rem;
+                  height: 6.125rem;
+                  background: url("../images/yearendReport/2023/img_macbookAir.png") no-repeat center / contain;
+                  span {
+                    top: -0.625rem;
+                    right: 0.3125rem;
+                  }
+                }
+                &.airpodsMax {
+                  top: 4.4375rem;
+                  left: 21%;
+                  transform: translateX(-50%);
+                  width: 3.875rem;
+                  height: 4.6875rem;
+                  background: url("../images/yearendReport/2023/img_airpodMax.png") no-repeat center / contain;
+                  span {
+                    top: -0.3125rem;
+                    left: 0;
+                  }
+                }
+                &.ipadAir {
+                  top: 3.875rem;
+                  left: 80%;
+                  transform: translateX(-50%);
+                  width: 5.625rem;
+                  height: 5.625rem;
+                  background: url("../images/yearendReport/2023/img_ipadAir.png") no-repeat center / contain;
+                  span {
+                    top: -1.25rem;
+                    right: 0;
+                  }
+                }
+                span {
+                  position: absolute;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  width: 1.6875rem;
+                  height: 1.6875rem;
+                  font-size: 0.75rem;
+                  font-weight: 700;
+                  color: $white-color;
+                  text-align: center;
+                  line-height: 2rem;
+                  border-radius: 50%;
+                  background: linear-gradient(145deg, rgba(255, 121, 60, 1) 0%, rgba(242, 177, 0, 1) 100%);
+                }
+
+                p {
+                  position: absolute;
+                  bottom: -1.875rem;
+                  margin-top: 0.3125rem;
+                  font-size: 0.75rem;
+                  font-weight: 500;
+                  color: $white-color;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    // 가연이벤트
+    .ga_yeon {
+      .gayeon_bg {
+        margin: 0 auto;
+        width: calc(100% - (1.25rem * 2));
+        border-radius: 0.625rem;
+        .gayeon_bgbox {
+          position: relative;
+          flex-direction: column;
+          margin: 0 auto;
+          padding: 1.875rem 0.9375rem;
+          width: 100%;
+          min-height: 32.3125rem;
+          border-radius: 0.625rem;
+          background: url("../images/yearendReport/2023/bg_gayeon.png") no-repeat center / cover;
+          .gayeon_bg_deco1 {
+            position: absolute;
+            top: 9.125rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20.4375rem;
+            height: 18.1875rem;
+            background: url("../images/yearendReport/2023/bg_gayeon_deco1.png") no-repeat center / contain;
+          }
+          .gayeon_bg_deco2 {
+            position: absolute;
+            top: 2.875rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15.5625rem;
+            height: 11.8125rem;
+            background: url("../images/yearendReport/2023/bg_gayeon_deco2.png") no-repeat center / contain;
+          }
+          article {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 5;
+            caption {
+              width: 8.125rem;
+              font-size: 1rem;
+              font-weight: 500;
+              color: #ffffff;
+              border-radius: 999px;
+              line-height: 1.75rem;
+              background-color: #8075f5;
+            }
+            .gayeon_event_title {
+              margin-top: 1.25rem;
+              font-size: 0;
+              color: transparent;
+              width: 16.4375rem;
+              height: 6.25rem;
+              background: url("../images/yearendReport/2023/text_ga_yeon_event_title.png") no-repeat center / contain;
+              + span {
+                margin: 0.625rem 0 0;
+                font-size: 0.875rem;
+                font-weight: 700;
+                color: $white-color;
+                text-align: center;
+                line-height: 20px;
+                em {
+                  color: #8075f5;
+                }
+              }
+            }
+            .img_ring {
+              width: 17.75rem;
+              height: 12.1875rem;
+              background: url("../images/yearendReport/2023/img_obj_ring.png") no-repeat center / contain;
+            }
+          }
+        }
+      }
+    }
+
+    // 연말리포트 공유하기
+    .lastYear_share {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 3.75rem $page-margin 5rem;
+      .thumbs_up {
+        width: 2.5rem;
+        height: 2.5rem;
+        background: url("../images/yearendReport/2023/img_thumb-up-dynamic.png") no-repeat center / contain;
+      }
+      .thumbs_up_text {
+        margin: 0.625rem 0 1.25rem;
+        width: 18.25rem;
+        height: 2rem;
+        font-size: 0;
+        color: transparent;
+        text-align: center;
+        background: url("../images/yearendReport/2023/text_share_title.png") no-repeat center / contain;
+      }
+      .share {
+        &::before {
+          content: "";
+          display: inline-block;
+          margin-right: 0.3125rem;
+          width: 1.125rem;
+          height: 1.125rem;
+          background: url("../images/yearendReport/2023/ico_share.svg") no-repeat center / contain;
+        }
+      }
+    }
+    // 하루조각 피플
+    .haruZogak_people {
+      padding: 3.75rem 0 2.5rem;
+      text-align: center;
+      background-color: $base-color;
+      > span {
+        font-size: 1.125rem;
+        font-weight: 900;
+        color: $green;
+      }
+      p {
+        margin-bottom: 1.25rem;
+        height: 3.1875rem;
+        font-size: 0;
+        color: transparent;
+        background: url("../images/yearendReport/2023/text_haruzogak_people_title.png") no-repeat center / 13.25rem;
+      }
+      // 하단 가로롤링배너 애니메이션
+      .rollingbanner {
+        display: flex;
+        position: relative;
+        width: 100%;
+        height: 225px;
+        margin: auto;
+        overflow: hidden;
+        z-index: 1;
+        .m-scroll {
+          display: flex;
+          position: absolute;
+          top: 0;
+          left: 0;
+          align-items: center;
+          justify-content: flex-start;
+          padding: 0.9375rem 0;
+          width: 100%;
+          height: 75px;
+          white-space: nowrap;
+          transition: all 1s ease;
+          > .oneline {
+            display: flex;
+            animation: scrollText 40s infinite linear;
+            li {
+              font-size: 1.875rem;
+              font-weight: 900;
+              color: $green;
+              margin: 0;
+              margin-right: 1.25rem;
+              transition: all 10s ease;
+              em {
+                color: $white-color;
+              }
+            }
+          }
+        }
+        .m-scroll2 {
+          @extend .m-scroll;
+          justify-content: flex-end;
+          border-top: 1px solid $white-color;
+          border-bottom: 1px solid $white-color;
+          top: 4.6875rem;
+          left: initial;
+          right: 0;
+          > .oneline {
+            animation: scrollText_rev 45s infinite linear;
+          }
+        }
+        .m-scroll3 {
+          @extend .m-scroll;
+          top: 150px;
+        }
+      }
+      @keyframes scrollText {
+        from {
+          transform: translateX(0%);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      @keyframes scrollText_rev {
+        from {
+          transform: translateX(0%);
+        }
+        to {
+          transform: translateX(50%);
+        }
+      }
+    }
+
+    // 끝
+    .year_issue_tailArea {
+      flex-direction: column;
+      padding: 3.75rem 0 11.25rem;
+      background: url("../images/yearendReport/2023/lastyear2023_tail.png") no-repeat center bottom 3.75rem / 6.25rem
+        $green;
+      p {
+        margin-bottom: 0.625rem;
+        height: 5rem;
+        font-size: 0;
+        color: transparent;
+        background: url("../images/yearendReport/2023/text_lastyear2023_tail_title.png") no-repeat center / 14.625rem;
+        em {
+          display: block;
+          padding-top: 0.5rem;
+          color: #ffe878;
+        }
+      }
+      span {
+        font-size: 1rem;
+        color: $white-color;
+        text-align: center;
+        line-height: 1.375rem;
+      }
+    }
+  }
+
+  // .instar_link_event {
+  //   flex-direction: column;
+  //   .customBG_case01 {
+  //     width: 500px;
+  //     height: 500px;
+  //     border: 1px solid red;
+  //     &.Bg01 {
+  //       background: url('../images/expic00.png') no-repeat center / contain;
+  //     }
+  //     &.Bg02 {
+  //       background: url('../images/expic01.png') no-repeat center / contain;
+  //     }
+  //   }
+  //   .btn_bg_change {
+  //     margin-top: 20px;
+  //     button {
+  //       padding: 20px 25px;
+  //       border: 1px solid blue;
+  //       & + button {
+  //         margin-left: 10px;
+  //       }
+  //     }
+  //   }
+  // }
+}
+
+.small_text {
+  &.graph {
+    &::before {
+      content: "";
+      display: inline-block;
+      margin-right: 0.3125rem;
+      width: 0.875rem;
+      height: 0.875rem;
+      background: url("../images/dailylog/img_investment.png") no-repeat center / contain;
+    }
+  }
+  &.decrease {
+    display: block;
+    &::after {
+      content: "";
+      display: inline-block;
+      margin-left: 0.3125rem;
+      width: 0rem;
+      height: 0rem;
+      border-left: 0.375rem solid transparent;
+      border-right: 0.375rem solid transparent;
+      border-bottom: 0.625rem solid red;
+    }
+  }
+  &.increase {
+    display: block;
+    &::after {
+      content: "";
+      display: inline-block;
+      margin-left: 0.3125rem;
+      width: 0rem;
+      height: 0rem;
+      border-top: 0.625rem solid #5c5eef;
+      border-left: 0.375rem solid transparent;
+      border-right: 0.375rem solid transparent;
+    }
+  }
+  &.shoes {
+    display: block;
+    &::before {
+      content: "";
+      display: inline-block;
+      margin-right: 0.3125rem;
+      width: 0.875rem;
+      height: 0.875rem;
+      background: url("../images/dailylog/img_running_shoe.png") no-repeat center / contain;
+    }
+  }
+}
+
+// 버트 스타일
+.btnBox {
+  width: 100%;
+  .button {
+    &.green {
+      width: 100%;
+      font-weight: 700;
+      background-color: $green;
+    }
+  }
+}
+.button {
+  &.green {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.25rem 0 -0.625rem;
+    width: 100%;
+    font-weight: 700;
+    background-color: $green;
+  }
+  &.orange {
+    margin: 0.625rem 0 0;
+    font-weight: 700;
+    background-color: #ff8f36;
+  }
+  &.violet {
+    margin: 1.25rem 0 -0.9375rem;
+    font-weight: 700;
+    background-color: #e868e5;
+  }
+  &.gray {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.25rem 0 -0.625rem;
+    width: 100%;
+    font-weight: 700;
+    background-color: #c1c1c1;
+    color: white;
+  }
+}
+// Line Chart 최고금액 포인터
+.amount_bg {
+  width: 5.3125rem;
+  height: 1.625rem;
+  fill: $green;
+}
+.amount_font {
+  font-size: 0.875rem;
+  font-weight: 700;
+  fill: $green;
+}
+
+// 애니메이션
+@keyframes arrows {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.91);
+    transform: scale(0.91);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+    transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.87);
+    transform: scale(0.87);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+@keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.91);
+    transform: scale(0.91);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+    transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.87);
+    transform: scale(0.87);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+
+@-webkit-keyframes flicker-1 {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  41.99% {
+    opacity: 1;
+  }
+  42% {
+    opacity: 0;
+  }
+  43% {
+    opacity: 0;
+  }
+  43.01% {
+    opacity: 1;
+  }
+  47.99% {
+    opacity: 1;
+  }
+  48% {
+    opacity: 0;
+  }
+  49% {
+    opacity: 0;
+  }
+  49.01% {
+    opacity: 1;
+  }
+}
+@keyframes flicker-1 {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  41.99% {
+    opacity: 1;
+  }
+  42% {
+    opacity: 0;
+  }
+  43% {
+    opacity: 0;
+  }
+  43.01% {
+    opacity: 1;
+  }
+  47.99% {
+    opacity: 1;
+  }
+  48% {
+    opacity: 0;
+  }
+  49% {
+    opacity: 0;
+  }
+  49.01% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes flip-diagonal-1-tr {
+  0% {
+    -webkit-transform: rotate3d(1, 1, 0, 0deg);
+    transform: rotate3d(1, 1, 0, 0deg);
+  }
+  50% {
+    -webkit-transform: rotate3d(1, 1, 0, 180deg);
+    transform: rotate3d(1, 1, 0, 180deg);
+  }
+  100% {
+    -webkit-transform: rotate3d(1, 1, 0, 0deg);
+    transform: rotate3d(1, 1, 0, 0deg);
+  }
+}
+@keyframes flip-diagonal-1-tr {
+  0% {
+    -webkit-transform: rotate3d(1, 1, 0, 0deg);
+    transform: rotate3d(1, 1, 0, 0deg);
+  }
+  50% {
+    -webkit-transform: rotate3d(1, 1, 0, 180deg);
+    transform: rotate3d(1, 1, 0, 180deg);
+  }
+  100% {
+    -webkit-transform: rotate3d(1, 1, 0, 0deg);
+    transform: rotate3d(1, 1, 0, 0deg);
+  }
+}
+
+// 화살표 빙글빙글 애니
+@-webkit-keyframes rotate-scale-down {
+  0% {
+    -webkit-transform: scale(1) rotateZ(0);
+    transform: scale(1) rotateZ(0);
+  }
+  50% {
+    opacity: 0;
+    -webkit-transform: scale(0.5) rotateZ(180deg);
+    transform: scale(0.5) rotateZ(180deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotateZ(360deg);
+    transform: scale(1) rotateZ(360deg);
+  }
+}
+@keyframes rotate-scale-down {
+  0% {
+    -webkit-transform: scale(1) rotateZ(0);
+    transform: scale(1) rotateZ(0);
+  }
+  50% {
+    opacity: 0;
+    -webkit-transform: scale(0.5) rotateZ(180deg);
+    transform: scale(0.5) rotateZ(180deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotateZ(360deg);
+    transform: scale(1) rotateZ(360deg);
+  }
+}
+
+// 화살표 진입 애니
+@-webkit-keyframes slide-in-br {
+  0% {
+    -webkit-transform: translateY(1000px) translateX(1000px);
+    transform: translateY(1000px) translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0) translateX(180%);
+    transform: translateY(0) translateX(180%);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-br {
+  0% {
+    -webkit-transform: translateY(1000px) translateX(1000px);
+    transform: translateY(1000px) translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0) translateX(180%);
+    transform: translateY(0) translateX(180%);
+    opacity: 1;
+  }
+}
+// bar chart 애니
+@keyframes bar-height {
+  0% {
+    height: 4.25rem;
+  }
+  50% {
+    height: 2.5rem;
+  }
+  100% {
+    height: 4.25rem;
+  }
+}
+@keyframes bar-height2 {
+  0% {
+    height: 2.5rem;
+  }
+  50% {
+    height: 4.25rem;
+  }
+  100% {
+    height: 2.5rem;
+  }
+}
+// step round 애니
+@keyframes stepRound {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes stepRound2 {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
+// 버블차트 애니
+@-webkit-keyframes bounce_in_fwd {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  38% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
+  55% {
+    -webkit-transform: scale(0.7);
+    transform: scale(0.7);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  72% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  81% {
+    -webkit-transform: scale(0.84);
+    transform: scale(0.84);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  89% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  95% {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+@keyframes bounce_in_fwd {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  38% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
+  55% {
+    -webkit-transform: scale(0.7);
+    transform: scale(0.7);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  72% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  81% {
+    -webkit-transform: scale(0.84);
+    transform: scale(0.84);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  89% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  95% {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+
+
+
+// 이벤트 종료 후 풍등섹션
+.sky_lantern_bg {
+  width: calc(100% - (#{$page-margin} * 2));
+  margin: 0 auto;
+  border-radius: 0.625rem;
+  background: linear-gradient(180deg, rgba(3,8,18,1) 0%, rgba(9,28,65,1) 75%, rgba(1,45,143,1) 100%);
+  .lantern_bg2 {
+    flex-direction: column;
+    width: 100%;
+    padding: 1.875rem 0.9375rem;
+    background: url("../images/yearendReport/2023/bg_skyLantern.png") no-repeat top / contain;
+    // background: url('../images/yearendReport/2023/event_skyLantern/bg_lantern_star.png') no-repeat center top / 22.5rem 29.375rem;
+    .cover {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      > span {
+        text-transform: uppercase;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #FF793C;
+      }
+      .cover_name {
+        margin: .625rem 0 .5rem;
+        width: 14.75rem;
+        height: 5.8125rem;
+        background: url('../images/yearendReport/2023/event_skyLantern/event_big_title.png') no-repeat center / contain;
+      }
+      .cover_name1 {
+        @extend .cover_name;
+        background: url("../images/yearendReport/2023/event_skyLantern/event_big_title1.png") no-repeat center / contain;
+      }
+      .text_title {
+        margin-bottom: .875rem;
+        // width: 16.9375rem;
+        // height: 1.625rem;
+        // background: url('../images/yearendReport/2023/event_skyLantern/text_lentern_sub1.png') no-repeat center / 16.9375rem;
+        width: 16.5rem;
+        height: 2rem;
+        background: url('../images/yearendReport/2023/event_skyLantern/text_lentern_sub.png') no-repeat center / 16.5rem;
+      }
+      .cover_mainImg {
+        width: 10.0625rem;
+        height: 7.375rem;
+        background: url('../images/yearendReport/2023/event_skyLantern/img_obj_lantern.png') no-repeat center / contain;
+      }
+      .sky_lantern_goal {
+        flex-direction: column;
+        margin: .9375rem 0 1rem;
+        
+        .cover_sub {
+          font-size: .875rem;
+          color: $white-color;
+          text-align: center
+        }
+      }
+    }
+    .button {
+      &.orange {
+        background-image: none;
+      }
+    }
+  }
+}
